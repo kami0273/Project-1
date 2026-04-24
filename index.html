@@ -659,7 +659,7 @@ window.clearPhoto=function(){
 var SYS='You are a nutrition expert. Return ONLY valid JSON with no markdown or extra text: {"name":string,"calories":number,"protein":number,"carbs":number,"fat":number}';
 
 function callClaude(msgs){
- return fetch('http://localhost:3000/analyze', {
+ return fetch('https://project-1-ihnx.onrender.com/analyze', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
