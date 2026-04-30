@@ -787,7 +787,7 @@ window.doLogin=async function(){
   var em=$('li-em').value.trim(),pw=$('li-pw').value;
   if(!em||!pw){$('li-err').textContent='Please fill in all fields.';return;}
   try {
-    var r=await fetch('https://project-1-ihnx.onrender.com/auth/login',{
+    var r=await fetch('https://nutritrack-backend-tair.onrender.com/auth/login',{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({email:em,password:pw})
     });
@@ -809,7 +809,7 @@ window.doSignup=async function(){
   if(!em||!em.includes('@')){$('su-err').textContent='Enter a valid email.';return;}
   if(pw.length<6){$('su-err').textContent='Password must be 6+ characters.';return;}
   try {
-    var r=await fetch('https://project-1-ihnx.onrender.com/auth/register',{
+    var r=await fetch('https://nutritrack-backend-tair.onrender.com/auth/register',{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({email:em,password:pw})
     });
@@ -892,7 +892,7 @@ window.finishOb=async function(){
   // also save to server
   var token=localStorage.getItem('nt_token');
   if(token){
-    fetch('https://project-1-ihnx.onrender.com/user/profile',{
+    fetch('https://nutritrack-backend-tair.onrender.com/user/profile',{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
       body:JSON.stringify(prof)
@@ -968,7 +968,7 @@ window.clearPhoto=function(){
 var SYS='You are a nutrition expert. Return ONLY valid JSON with no markdown or extra text: {"name":string,"calories":number,"protein":number,"carbs":number,"fat":number}';
 
 function callClaude(msgs){
- return fetch('https://project-1-ihnx.onrender.com/analyze', {
+ return fetch('https://nutritrack-backend-tair.onrender.com/analyze', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify({ 
